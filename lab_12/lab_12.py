@@ -6,20 +6,13 @@ class GUI:
         self.result = None
 
     def calculate_button_callback(self):
-        # В этой функции вы можете вызвать функции из calculations.py для выполнения расчетов
         pass
 
     def save_to_doc(self):
-        # Функция для сохранения результатов в .doc
         pass
 
     def save_to_xls(self):
-        # Функция для сохранения результатов в .xls
         pass
-
-    def show(self):
-        with dpg.texture_registry():
-            texture_id = dpg.add_texture("my_texture", "../path/to/texture.png")
 
         with dpg.window(label="Storage Device Selector"):
             dpg.add_text("Select Storage Device:")
