@@ -14,10 +14,6 @@ class GUI:
     def save_to_xls(self):
         pass
 
-    def show(self):
-        with dpg.texture_registry():
-            texture_id = dpg.add_texture("my_texture", "../path/to/texture.png")
-
         with dpg.window(label="Storage Device Selector"):
             dpg.add_text("Select Storage Device:")
             dpg.add_checkbox("HDD")
