@@ -1,43 +1,64 @@
-# gui.py
-import dearpygui.dearpygui as dpg
+from pyforms.basewidget import BaseWidget
+from pyforms.controls import ControlButton, ControlTextArea
+from electron import Electron
+from neitron import Neitron
+from proton import Proton
 
-class GUI:
+from report import save_to_docx, save_to_xlsx
+
+class ParticlePropertiesCalculator(BaseWidget):
     def __init__(self):
-        self.result = None
+        super().__init__('Particle Properties Calculator')
 
-    def calculate_button_callback(self):
-        # В этой функции вы можете вызвать функции из calculations.py для выполнения расчетов
-        pass
+        self._electron_btn = ControlButton('Расчёт Электрон')
+        self._neitron_btn = ControlButton('Расчёт Нейтрон')
+        self._proton_btn = ControlButton('Расчёт Протон')
 
-    def save_to_doc(self):
-        # Функция для сохранения результатов в .doc
-        pass
+        self._output_area = ControlTextArea('результат')
 
-    def save_to_xls(self):
-        # Функция для сохранения результатов в .xls
-        pass
+        self._electron_btn.value = self._calculate_electron_properties
+        self._neitron_btn.value = self._calculate_neutron_properties
+        self._proton_btn.value = self._calculate_proton_properties
 
-    def show(self):
-        with dpg.texture_registry():
-            texture_id = dpg.add_texture("my_texture", "../path/to/texture.png")
+        self._save_docx_btn = ControlButton('Охранить .docx')
+        self._save_xlsx_btn = ControlButton('Сохранить .xlsx')
 
-        with dpg.window(label="Storage Device Selector"):
-            dpg.add_text("Select Storage Device:")
-            dpg.add_checkbox("HDD")
-            dpg.add_checkbox("SSD")
-            dpg.add_checkbox("Flash")
+        self._save_docx_btn.value = self._save_to_docx
+        self._save_xlsx_btn.value = self._save_to_xlsx
 
-            dpg.add_text("Enter Data Volume (GB):")
-            dpg.add_input_int("Data Volume (GB)")
+        self.formset = [
+            ('_electron_btn', '_neitron_btn', '_proton_btn'),
+            '_output_area',
+            ('_save_docx_btn', '_save_xlsx_btn')
+        ]
 
-            dpg.add_button("Calculate", callback=self.calculate_button_callback)
+    def _calculate_electron_properties(self):
+        e = Electron.electron()
+        specific_charge = e.specific_charge()
+        compton_wavelength = e.compton_wavelength()
+        self._output_area.value += f'Электрон Расчёт удельного заряда: {specific_charge}\n'
+        self._output_area.value += f'комптоновской длины волны: {compton_wavelength}\n\n'
 
-        dpg.create_context()
-        dpg.create_viewport()
-        dpg.setup_dearpygui()
-        dpg.show_viewport()
-        dpg.start_dearpygui()
+    def _calculate_neutron_properties(self):
+        n = Neitron.neitron()
+        specific_charge = n.specific_charge()
+        compton_wavelength = n.compton_wavelength()
+        self._output_area.value += f'Нейтрон Расчёт удельного заряда: {specific_charge}\n'
+        self._output_area.value += f'комптоновской длины волны: {compton_wavelength}\n\n'
 
-if __name__ == "__main__":
-    gui = GUI()
-    gui.show()
+    def _calculate_proton_properties(self):
+        p = Proton.proton()
+        specific_charge = p.specific_charge()
+        compton_wavelength = p.compton_wavelength()
+        self._output_area.value += f'Протон Расчёт удельного заряда: {specific_charge}\n'
+        self._output_area.value += f'комптоновской длины волны: {compton_wavelength}\n\n'
+
+    def _save_to_docx(self):
+        save_to_docx(self._output_area.value)
+
+    def _save_to_xlsx(self):
+        save_to_xlsx(self._output_area.value)
+
+if __name__ == '__main__':
+    from pyforms import start_app
+    start_app(ParticlePropertiesCalculator)
