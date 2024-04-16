@@ -1,5 +1,3 @@
-import math
-
 class Particle:
     def __init__(self, charge, mass):
         self.mass = mass
@@ -14,7 +12,7 @@ class Neitron(Particle):
         mass = 1.67492749804e-27
         charge = 0
         super().__init__(charge, mass)
-    def calculate_compton_wavelength(self):
+    def compton(self):
         h = 6.62607015e-34
         c = 299792458 
         m_n = self.mass
