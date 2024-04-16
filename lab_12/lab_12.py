@@ -26,7 +26,7 @@ class ParticlePropertiesCalculator(BaseWidget):
 
         doc = Document()
         doc.add_paragraph(result_text)
-        doc.save('proton_properties.doc')
+        doc.save('електрон.doc')
 
     def calculate_neitron_properties(self):
         particle = Neitron()
@@ -37,7 +37,7 @@ class ParticlePropertiesCalculator(BaseWidget):
 
         doc = Document()
         doc.add_paragraph(result_text)
-        doc.save('proton_properties.doc')
+        doc.save('нейтрон.doc')
 
     def calculate_proton_properties(self):
         particle = Proton()
@@ -48,7 +48,7 @@ class ParticlePropertiesCalculator(BaseWidget):
 
         doc = Document()
         doc.add_paragraph(result_text)
-        doc.save('proton_properties.doc')
+        doc.save('протон.doc')
 
 if __name__ == "__main__":
     from pyforms import start_app
