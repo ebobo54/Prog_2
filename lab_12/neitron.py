@@ -15,5 +15,5 @@ class Neitron(Particle):
     def compton(self):
         h = 6.62607015e-34
         c = 299792458 
-        m_n = self.mass
-        return h / (m_n * c)
+        m = self.mass
+        return h / (m * c)
