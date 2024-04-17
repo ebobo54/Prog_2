@@ -3,10 +3,7 @@ class Particle:
         self.mass = mass
         self.charge = charge
 
-    def specific_charge(self):
-        if self.mass == 0:
-            return None
-        return self.charge / self.mass
+    
 class Neitron(Particle):
     def __init__(self):
         mass = 1.67492749804e-27
