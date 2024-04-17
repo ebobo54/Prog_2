@@ -21,3 +21,4 @@
 ## Ссылки на используемые материалы
 1. [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 2. [Прог. Лабораторная работа №12](https://evil-teacher.on.fleek.co/prog_pm/term2/lab12/)
+3. [Язык разметки Markdown: шпаргалка по синтаксису с примерами](https://skillbox.ru/media/code/yazyk-razmetki-markdown-shpargalka-po-sintaksisu-s-primerami/)
