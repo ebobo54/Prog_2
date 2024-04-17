@@ -19,7 +19,7 @@ class Calculator(BaseWidget):
         particle = Electron()
         specific_charge = particle.specific_charge()
         compton = particle.compton()
-        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина волны: {compton:.2e} м"
+        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина: {compton:.2e} м"
         self._output_area.value = result_text
         doc = Document()
         doc.add_paragraph(result_text)
@@ -29,7 +29,7 @@ class Calculator(BaseWidget):
         particle = Neitron()
         specific_charge = particle.specific_charge()
         compton = particle.compton()
-        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина волны: {compton:.2e} м"
+        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина: {compton:.2e} м"
         self._output_area.value = result_text
         doc = Document()
         doc.add_paragraph(result_text)
@@ -39,7 +39,7 @@ class Calculator(BaseWidget):
         particle = Proton()
         specific_charge = particle.specific_charge()
         compton = particle.compton()
-        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина волны: {compton:.2e} м"
+        result_text = f"Удельный заряд электрона: {specific_charge:.2e} Кл/кг\nКомптоновская длина: {compton:.2e} м"
         self._output_area.value = result_text
         doc = Document()
         doc.add_paragraph(result_text)
