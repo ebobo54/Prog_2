@@ -7,7 +7,7 @@ from docx import Document
 
 class Calculator(BaseWidget):
     def __init__(self):
-        super().__init__('Калькулятор свойств частиц')
+        super().__init__('Расчёт удельного заряда и комптоновской длины волны.')
         self.electron_button = ControlButton('Рассчитать свойства электрона', default=self.calculate_electron)
         self.neitron_button = ControlButton('Рассчитать свойства нейтрона', default=self.calculate_neitron)
         self.proton_button = ControlButton('Рассчитать свойства протона', default=self.calculate_proton)

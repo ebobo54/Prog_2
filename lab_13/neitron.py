@@ -2,7 +2,7 @@ class Particle:
     def __init__(self, charge, mass):
         self.mass = mass
         self.charge = charge
-    
+
     def specific_charge(self):
         if self.mass == 0:
             return None
